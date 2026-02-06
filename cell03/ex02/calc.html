@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>It's over 9000</title>
+
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #f2f2f2;
+      font-family: Arial, sans-serif;
+    }
+
+    .calculator {
+      background: white;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+      text-align: center;
+    }
+
+    .calculator input,
+    .calculator select {
+      font-size: 1.2rem;
+      padding: 10px;
+      margin: 10px;
+      width: 120px;
+    }
+
+    .calculator input[type="submit"] {
+      width: 100%;
+      margin-top: 20px;
+      font-size: 1.3rem;
+      cursor: pointer;
+      background: #222;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      padding: 12px;
+    }
+
+    .calculator input[type="submit"]:hover {
+      background: #444;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="calculator">
+    <input type="text" id="left">
+
+    <select id="operator">
+      <option value="+">+</option>
+      <option value="-">-</option>
+      <option value="*">*</option>
+      <option value="/">/</option>
+      <option value="%">%</option>
+    </select>
+
+    <input type="text" id="right">
+
+    <input type="submit" value="Try me!" onclick="calculate()">
+  </div>
+
+  <script>
+    function calculate() {
+      const left = document.getElementById("left").value;
+      const right = document.getElementById("right").value;
+      const operator = document.getElementById("operator").value;
+
+      // check positive integers (>= 0)
+      if (!/^\d+$/.test(left) || !/^\d+$/.test(right)) {
+        alert("Error :(");
+        return;
+      }
+
+      const a = parseInt(left);
+      const b = parseInt(right);
+      let result;
+
+      // division or modulo by zero
+      if ((operator === "/" || operator === "%") && b === 0) {
+        alert("It's over 9000!");
+        console.log("It's over 9000!");
+        return;
+      }
+
+      switch (operator) {
+        case "+": result = a + b; break;
+        case "-": result = a - b; break;
+        case "*": result = a * b; break;
+        case "/": result = a / b; break;
+        case "%": result = a % b; break;
+      }
+
+      alert(result);
+      console.log(result);
+    }
+
+    setInterval(function () {
+      alert("Please, use me...");
+    }, 30000);
+  </script>
+
+</body>
+</html>
