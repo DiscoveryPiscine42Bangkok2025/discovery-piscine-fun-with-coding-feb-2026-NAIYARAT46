@@ -1,50 +1,131 @@
-/* reset เบา ๆ */
+/* ===========================
+   Reset
+=========================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ===========================
+   Body
+=========================== */
 body {
-  font-family: Arial, sans-serif;
-  padding: 50px;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #74ebd5, #9face6);
+    height: 100vh;
 }
 
-/* เมนูหลัก */
-.menu ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+/* ===========================
+   Menu Position
+=========================== */
+.menu {
+    position: fixed;     /* ติดหน้าจอ */
+    top: 20px;           /* ห่างจากบน */
+    left: 20px;          /* ห่างจากซ้าย */
+
+    z-index: 1000;       /* ลอยบนสุด */
 }
 
-.menu a {
-  text-decoration: none;
-  color: white;
-  padding: 12px 20px;
-  display: block;
-  background-color: #003a8f; /* น้ำเงิน SNCF */
+/* ===========================
+   Main Menu
+=========================== */
+.main-menu {
+    list-style: none;
 }
 
-/* dropdown container */
+/* ===========================
+   Dropdown Button
+=========================== */
 .dropdown {
-  position: relative;
-  width: 200px;
+    background: linear-gradient(to right, #ff512f, #dd2476);
+    color: white;
+
+    padding: 15px 25px;
+    width: 180px;
+
+    font-size: 20px;
+    font-weight: bold;
+
+    border-radius: 8px;
+    cursor: pointer;
+
+    position: relative;
+
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+
+    transition: all 0.3s ease;
 }
 
-/* เมนูย่อย (ซ่อนก่อน) */
-.dropdown-content {
-  display: none;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  width: 100%;
+/* Hover main button */
+.dropdown:hover {
+    transform: scale(1.05);
 }
 
-/* สีเมนูย่อย */
-.dropdown-content a {
-  background-color: #0050c8;
+/* ===========================
+   Sub Menu
+=========================== */
+.sub-menu {
+    list-style: none;
+
+    position: absolute;
+    top: 110%;
+    left: 0;
+
+    width: 100%;
+
+    background: white;
+
+    border-radius: 8px;
+    overflow: hidden;
+
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+
+    display: none;
+
+    animation: slideDown 0.3s ease;
 }
 
-/* hover effect */
-.dropdown-content a:hover {
-  background-color: #002766;
+/* Show submenu */
+.dropdown:hover .sub-menu {
+    display: block;
 }
 
-/* สำคัญที่สุด: hover แล้วแสดง */
-.dropdown:hover .dropdown-content {
-  display: block;
+/* Sub menu item */
+.sub-menu li {
+    border-bottom: 1px solid #ddd;
+}
+
+/* Link */
+.sub-menu a {
+    display: block;
+
+    padding: 12px;
+
+    color: #333;
+    text-decoration: none;
+    font-weight: bold;
+
+    transition: all 0.2s;
+}
+
+/* Hover link */
+.sub-menu a:hover {
+    background: #dd2476;
+    color: white;
+}
+
+/* ===========================
+   Animation
+=========================== */
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
