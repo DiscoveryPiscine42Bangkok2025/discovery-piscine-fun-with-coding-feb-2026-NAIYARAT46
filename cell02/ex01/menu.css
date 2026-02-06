@@ -1,0 +1,50 @@
+/* reset เบา ๆ */
+body {
+  font-family: Arial, sans-serif;
+  padding: 50px;
+}
+
+/* เมนูหลัก */
+.menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menu a {
+  text-decoration: none;
+  color: white;
+  padding: 12px 20px;
+  display: block;
+  background-color: #003a8f; /* น้ำเงิน SNCF */
+}
+
+/* dropdown container */
+.dropdown {
+  position: relative;
+  width: 200px;
+}
+
+/* เมนูย่อย (ซ่อนก่อน) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+}
+
+/* สีเมนูย่อย */
+.dropdown-content a {
+  background-color: #0050c8;
+}
+
+/* hover effect */
+.dropdown-content a:hover {
+  background-color: #002766;
+}
+
+/* สำคัญที่สุด: hover แล้วแสดง */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
