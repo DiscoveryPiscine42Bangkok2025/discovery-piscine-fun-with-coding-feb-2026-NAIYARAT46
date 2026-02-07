@@ -1,0 +1,18 @@
+/* ทำให้ปุ่มอยู่ตำแหน่งสวย ๆ */
+body {
+  margin: 0;
+  height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: white;
+}
+
+/* ปุ่ม */
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
