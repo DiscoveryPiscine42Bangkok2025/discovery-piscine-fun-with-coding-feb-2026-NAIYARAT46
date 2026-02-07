@@ -1,59 +1,57 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <title>It's over 9000</title>
+  <title>Calculator</title>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 </head>
 <body>
 
-<input type="text" id="left">
-
-<select id="operator">
-  <option value="+">+</option>
-  <option value="-">-</option>
-  <option value="*">*</option>
-  <option value="/">/</option>
-  <option value="%">%</option>
+<input id="a" type="text">
+<select id="op">
+  <option>+</option>
+  <option>-</option>
+  <option>*</option>
+  <option>/</option>
+  <option>%</option>
 </select>
+<input id="b" type="text">
+<button id="try">Try me!</button>
 
-<input type="text" id="right">
-
-<input type="submit" value="Try me!" id="try">
-
-<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <script>
-  $("#try").click(function () {
-    const left = $("#left").val();
-    const right = $("#right").val();
-    const op = $("#operator").val();
+  $('#try').click(function () {
+    const a = $('#a').val();
+    const b = $('#b').val();
+    const op = $('#op').val();
 
-    if (!/^\d+$/.test(left) || !/^\d+$/.test(right)) {
-      alert("Error :(");
+    if (!/^\d+$/.test(a) || !/^\d+$/.test(b)) {
+      alert('Error :(');
       return;
     }
 
-    const a = parseInt(left);
-    const b = parseInt(right);
+    const x = Number(a);
+    const y = Number(b);
 
-    if ((op === "/" || op === "%") && b === 0) {
+    if ((op === '/' || op === '%') && y === 0) {
       alert("It's over 9000!");
       console.log("It's over 9000!");
       return;
     }
 
     let result;
-    if (op === "+") result = a + b;
-    if (op === "-") result = a - b;
-    if (op === "*") result = a * b;
-    if (op === "/") result = a / b;
-    if (op === "%") result = a % b;
+    switch (op) {
+      case '+': result = x + y; break;
+      case '-': result = x - y; break;
+      case '*': result = x * y; break;
+      case '/': result = x / y; break;
+      case '%': result = x % y; break;
+    }
 
     alert(result);
     console.log(result);
   });
 
-  setInterval(function () {
-    alert("Please, use me...");
+  setInterval(() => {
+    alert('Please, use me...');
   }, 30000);
 </script>
 
